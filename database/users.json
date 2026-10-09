@@ -1,0 +1,43 @@
+[
+    {
+        "id": "usr_victor001",
+        "nome": "Victor",
+        "email": "victor@email.com",
+        "senha": "123456",
+        "idade": 80,
+        "peso": 2000000000000.0,
+        "altura": 3.0,
+        "imc": 222222222222.22
+    },
+    {
+        "id": "usr_rithye001",
+        "nome": "RITHYE",
+        "email": "rithyeeeee@gmail.gordo",
+        "senha": "gordos123",
+        "idade": 67,
+        "peso": 1e+27,
+        "altura": 0.5,
+        "imc": null
+    },
+    {
+        "id": "usr_2725d0c906",
+        "nome": "VITTORYO",
+        "email": "vvvvvvv@gordos57.com",
+        "senha": "gordinhodocaos67",
+        "idade": 16,
+        "peso": 80.0,
+        "altura": 1.75,
+        "imc": 26.12
+    },
+    {
+        "id": "usr_c99225a3a9",
+        "nome": "manuel",
+        "email": "manuel@email.com",
+        "senha": "jVTg5VebtPbG5Xi",
+        "idade": 19,
+        "sexo": "masculino",
+        "peso": 90.0,
+        "altura": 1.95,
+        "imc": 23.67
+    }
+]
