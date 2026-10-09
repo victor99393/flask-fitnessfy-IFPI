@@ -1,0 +1,588 @@
+/* ============================================================
+   FITNESSFY - CALCULADORA MATEMÁTICA
+   ============================================================ */
+
+
+/* ============================================================
+   FUNDO / BASE
+   ============================================================ */
+
+html,
+body {
+    min-height: 100%;
+}
+
+body {
+    margin: 0;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    color: #ffffff;
+
+    background:
+        radial-gradient(
+            circle at top,
+            #003c36 0%,
+            #001f1c 35%,
+            #000807 70%,
+            #000000 100%
+        );
+
+    overflow-x: hidden;
+}
+
+
+/* ============================================================
+   HEADER
+   Compatível com o header.html usado no resultado
+   ============================================================ */
+
+header {
+    position: relative;
+    width: 100%;
+    z-index: 10;
+}
+
+header nav {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 30px;
+
+    padding: 18px 20px;
+}
+
+header nav a {
+    color: #bcecf5;
+
+    text-decoration: none;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    transition:
+        color 0.2s ease,
+        opacity 0.2s ease;
+}
+
+header nav a:hover {
+    color: #ffffff;
+    opacity: 0.85;
+}
+
+
+/* ============================================================
+   MAIN
+   ============================================================ */
+
+main {
+    width: 100%;
+
+    min-height:
+        calc(100vh - 120px);
+}
+
+
+/* ============================================================
+   CALCULADORA
+   ============================================================ */
+
+#math-calculator {
+    width: 100%;
+    max-width: 700px;
+
+    margin: 40px auto;
+    padding: 30px;
+
+    box-sizing: border-box;
+
+    border: 1px solid #183436;
+    border-radius: 18px;
+
+    background: rgba(5, 22, 22, 0.82);
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.25);
+}
+
+
+/* ============================================================
+   CABEÇALHO DA CALCULADORA
+   ============================================================ */
+
+#math-header {
+    display: flex;
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 30px;
+}
+
+#math-icon {
+    width: 48px;
+    height: 48px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 11px;
+
+    background: rgba(93, 228, 208, 0.07);
+
+    font-size: 24px;
+}
+
+#math-header h2 {
+    margin: 0 0 5px;
+
+    color: #ffffff;
+
+    font-size: 22px;
+    font-weight: 700;
+}
+
+#math-header p {
+    margin: 0;
+
+    color: #7f9093;
+
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+
+/* ============================================================
+   FORMULÁRIO
+   ============================================================ */
+
+#math-form {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 20px;
+}
+
+.math-field {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+.math-field label {
+    color: #7f9093;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: 1px;
+}
+
+
+/* ============================================================
+   INPUTS E SELECT
+   ============================================================ */
+
+.math-field input,
+.math-field select {
+    width: 100%;
+
+    min-height: 48px;
+
+    padding: 13px 14px;
+
+    box-sizing: border-box;
+
+    border: 1px solid #183436;
+    border-radius: 10px;
+
+    outline: none;
+
+    background: rgba(0, 31, 28, 0.75);
+
+    color: #ffffff;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 15px;
+
+    transition:
+        border-color 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+/* Placeholder */
+
+.math-field input::placeholder {
+    color: #687679;
+}
+
+
+/* Select */
+
+.math-field select {
+    cursor: pointer;
+}
+
+.math-field select option {
+    background: #001f1c;
+    color: #ffffff;
+}
+
+
+/* Foco */
+
+.math-field input:focus,
+.math-field select:focus {
+    border-color: #5de4d0;
+
+    background: rgba(0, 31, 28, 0.95);
+
+    box-shadow:
+        0 0 0 3px rgba(93, 228, 208, 0.08);
+}
+
+
+/* ============================================================
+   BOTÃO CALCULAR
+   ============================================================ */
+
+#math-submit {
+    width: 100%;
+
+    min-height: 48px;
+
+    margin-top: 5px;
+
+    padding: 13px 18px;
+
+    border: 1px solid rgba(57, 217, 138, 0.3);
+    border-radius: 10px;
+
+    background: rgba(57, 217, 138, 0.12);
+
+    color: #39d98a;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.15s ease;
+}
+
+#math-submit:hover {
+    background: rgba(57, 217, 138, 0.18);
+
+    border-color: rgba(57, 217, 138, 0.5);
+}
+
+#math-submit:active {
+    transform: scale(0.98);
+}
+
+
+/* ============================================================
+   ERRO DA CALCULADORA
+   ============================================================ */
+
+#math-error {
+    margin-top: 20px;
+
+    padding: 14px 16px;
+
+    border: 1px solid rgba(255, 92, 92, 0.25);
+    border-radius: 10px;
+
+    background: rgba(255, 92, 92, 0.08);
+
+    color: #ff7a7a;
+
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+
+/* ============================================================
+   PÁGINA DE RESULTADO
+   ============================================================ */
+
+#math-result {
+    width: 100%;
+    max-width: 700px;
+
+    margin: 40px auto;
+    padding: 30px;
+
+    box-sizing: border-box;
+
+    border: 1px solid #183436;
+    border-radius: 18px;
+
+    background: rgba(5, 22, 22, 0.82);
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.25);
+
+    text-align: center;
+}
+
+
+/* ============================================================
+   CABEÇALHO DO RESULTADO
+   ============================================================ */
+
+#math-result-header {
+    margin-bottom: 28px;
+}
+
+#math-result-icon {
+    width: 52px;
+    height: 52px;
+
+    margin: 0 auto 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background: rgba(93, 228, 208, 0.07);
+
+    font-size: 27px;
+}
+
+#math-result-header h2 {
+    margin: 0 0 7px;
+
+    color: #ffffff;
+
+    font-size: 28px;
+    font-weight: 700;
+}
+
+#math-result-header p {
+    margin: 0;
+
+    color: #7f9093;
+
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+
+/* ============================================================
+   NOME DA OPERAÇÃO
+   ============================================================ */
+
+#math-result-operation {
+    margin-bottom: 15px;
+
+    color: #5de4d0;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+}
+
+
+/* ============================================================
+   OPERAÇÃO
+   ============================================================ */
+
+#math-operation-display {
+    margin: 0 0 20px;
+
+    color: #ffffff;
+
+    font-size: 24px;
+    font-weight: 600;
+}
+
+
+/* ============================================================
+   RESULTADO
+   ============================================================ */
+
+#math-result-value {
+    width: 100%;
+
+    margin: 0 auto 28px;
+    padding: 25px 20px;
+
+    box-sizing: border-box;
+
+    border: 1px solid rgba(57, 217, 138, 0.2);
+    border-radius: 14px;
+
+    background: rgba(57, 217, 138, 0.06);
+
+    color: #39d98a;
+
+    font-size: 42px;
+    font-weight: 700;
+
+    line-height: 1.2;
+}
+
+
+/* ============================================================
+   BOTÃO VOLTAR
+   ============================================================ */
+
+#math-result-back {
+    width: 100%;
+
+    min-height: 48px;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    box-sizing: border-box;
+
+    padding: 13px 18px;
+
+    border: 1px solid rgba(93, 228, 208, 0.2);
+    border-radius: 10px;
+
+    background: rgba(93, 228, 208, 0.07);
+
+    color: #5de4d0;
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.15s ease;
+}
+
+#math-result-back:hover {
+    background: rgba(93, 228, 208, 0.12);
+
+    border-color: rgba(93, 228, 208, 0.4);
+
+    color: #ffffff;
+}
+
+#math-result-back:active {
+    transform: scale(0.98);
+}
+
+
+/* ============================================================
+   ERRO NO RESULTADO
+   ============================================================ */
+
+#math-result-error {
+    margin: 20px 0;
+
+    padding: 15px;
+
+    border: 1px solid rgba(255, 92, 92, 0.25);
+    border-radius: 10px;
+
+    background: rgba(255, 92, 92, 0.08);
+
+    color: #ff7a7a;
+
+    font-size: 14px;
+}
+
+
+/* ============================================================
+   RESPONSIVIDADE
+   ============================================================ */
+
+@media (max-width: 600px) {
+
+    #math-calculator,
+    #math-result {
+        width: calc(100% - 30px);
+
+        margin: 25px auto;
+
+        padding: 22px 18px;
+
+        border-radius: 15px;
+    }
+
+    #math-header {
+        gap: 12px;
+    }
+
+    #math-icon {
+        width: 44px;
+        height: 44px;
+
+        font-size: 22px;
+    }
+
+    #math-header h2 {
+        font-size: 20px;
+    }
+
+    #math-header p {
+        font-size: 12px;
+    }
+
+    #math-result-header h2 {
+        font-size: 24px;
+    }
+
+    #math-operation-display {
+        font-size: 21px;
+    }
+
+    #math-result-value {
+        padding: 22px 15px;
+
+        font-size: 34px;
+    }
+
+    header nav {
+        gap: 18px;
+
+        padding: 15px 12px;
+    }
+
+    header nav a {
+        font-size: 14px;
+    }
+}
