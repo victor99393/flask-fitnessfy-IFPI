@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Fitnessfy - Login</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../img/favicon.png">
+
+    <link rel="stylesheet" href="../style/style.css">
+</head>
+
+<body>
+
+    <!-- Efeito de chuva -->
+    <div id="rain"></div>
+
+    <!-- Login -->
+    <main id="login-container">
+
+        <img
+            src="../img/logo.png"
+            alt="Fitnessfy"
+            id="logo"
+        >
+
+        <h1>Bem-vindo ao Fitnessfy</h1>
+
+        <p id="subtitle">
+            Entre na sua conta para continuar
+        </p>
+
+        <form id="login-form">
+
+            <label for="username">
+                Usuário
+            </label>
+
+            <input
+                type="text"
+                id="username"
+                name="username"
+                placeholder="Digite seu usuário"
+                autocomplete="username"
+                required
+            >
+
+            <label for="password">
+                Senha
+            </label>
+
+            <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Digite sua senha"
+                autocomplete="current-password"
+                required
+            >
+
+            <button type="submit">
+                Entrar
+            </button>
+
+            <a href="#" id="forgot-password">
+                Esqueci minha senha
+            </a>
+
+        </form>
+
+        <p id="register">
+            Ainda não possui uma conta?
+            <a href="#">
+                Criar conta
+            </a>
+        </p>
+
+    </main>
+
+</body>
+
+</html>
