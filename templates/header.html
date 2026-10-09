@@ -1,0 +1,31 @@
+<header id="site-header">
+    <nav>
+
+        <a href="{{ url_for('index') }}">
+            Início
+        </a>
+
+        <a href="{{ url_for('about') }}">
+            Sobre
+        </a>
+
+        <a href="{{ url_for('login') }}">
+            Login
+        </a>
+
+        {% if user_id %}
+
+            <a href="{{ url_for('profile', user_id=user_id) }}">
+                Perfil
+            </a>
+
+        {% else %}
+
+            <a href="{{ url_for('login') }}">
+                Perfil
+            </a>
+
+        {% endif %}
+
+    </nav>
+</header>
