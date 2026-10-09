@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Resultado da Calculadora</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/math.css') }}"
+    >
+
+</head>
+
+
+<body>
+
+    {% include 'header.html' %}
+
+
+    <main>
+
+        <section id="math-result">
+
+            <div id="math-result-header">
+
+                <div id="math-result-icon">
+                    🧮
+                </div>
+
+                <h2>
+                    Resultado
+                </h2>
+
+                <p>
+                    Confira o resultado da sua operação.
+                </p>
+
+            </div>
+
+
+            {% if erro %}
+
+                <div
+                    id="math-result-error"
+                    role="alert"
+                >
+                    {{ erro }}
+                </div>
+
+
+            {% else %}
+
+                <div id="math-result-operation">
+
+                    {{ nome_operacao }}
+
+                </div>
+
+
+                <div id="math-operation-display">
+
+                    {{ numero_a }}
+                    {{ simbolo }}
+                    {{ numero_b }}
+
+                </div>
+
+
+                <div id="math-result-value">
+
+                    {{ resultado }}
+
+                </div>
+
+            {% endif %}
+
+
+            {% if user_id and peso and altura %}
+
+                <a
+                    href="{{ url_for(
+                        'imc',
+                        user_id=user_id,
+                        peso=peso,
+                        altura=altura
+                    ) }}"
+                    id="math-result-back"
+                >
+                    ← Voltar para a calculadora de IMC
+                </a>
+
+            {% else %}
+
+                <a
+                    href="{{ url_for('index') }}"
+                    id="math-result-back"
+                >
+                    ← Voltar
+                </a>
+
+            {% endif %}
+
+        </section>
+
+    </main>
+
+
+</body>
+
+</html>
