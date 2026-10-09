@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Cálculo - FitnessFY
+{% endblock %}
+
+{% block extra_css %}
+
+<link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='css/math.css') }}"
+>
+
+{% endblock %}
+
+{% block content %}
+
+<section id="math-page">
+
+    <div id="math-container">
+
+        <p id="math-label">
+            CALCULADORA
+        </p>
+
+
+        <h1>
+            Resultado do cálculo
+        </h1>
+
+
+        <p id="math-description">
+            Confira o resultado da operação matemática realizada.
+        </p>
+
+
+        <div id="math-result">
+
+            <span id="math-operation">
+                {{ a }} {{ simbolo }} {{ b }}
+            </span>
+
+
+            <span id="math-equals">
+                =
+            </span>
+
+
+            <strong id="math-value">
+                {{ resultado }}
+            </strong>
+
+        </div>
+
+
+        <a
+            href="{{ url_for('index') }}"
+            id="math-back-button"
+        >
+            Voltar para o início
+        </a>
+
+    </div>
+
+</section>
+
+{% endblock %}
